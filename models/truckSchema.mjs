@@ -23,4 +23,8 @@ const truckSchema = new mongoose.Schema({
     }
 });
 
+truckSchema.statics.allIdleTrucks = function () {
+    return this.find({status: 'Idle'});
+}
+
 export default mongoose.model("Truck", truckSchema)
