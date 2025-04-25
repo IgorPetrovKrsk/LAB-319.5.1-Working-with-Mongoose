@@ -1,7 +1,14 @@
+import Trucks from '../models/truckSchema.mjs';
 
-function getAllTrucks(req,res){
-    res.send('test');
+async function getAllTrucks(req,res){
+    const allTrucks = await Trucks.find({});
+    res.json(allTrucks);
 }
 
-export default {getAllTrucks}
+async function postNewTruck(req,res){
+    const newTruck = await Trucks.create(req.body);
+    res.json(newTruck);
+}
+
+export default {getAllTrucks,postNewTruck}
 
